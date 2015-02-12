@@ -8,13 +8,17 @@ class GenereateUrlsController < ApplicationController
   end
 
   def genereate_short_url
+      url = params[:url_name] 
+        new_url = Shortener::ShortenedUrl.generate(url)
+        @converted_url = new_url.unique_key
+        respond_to do |format|
+          format.json { render json: new_url.to_json }
+        end
 
-    @converted_url = Shortener::ShortenedUrl.generate("http://dealush.com")
-
-      respond_to do |format|
-        redirect_to genereate_urls_path
-      format.js
-      end 
+      # respond_to do |format|
+      #   redirect_to genereate_urls_path
+      #   format.js
+      # end 
    
   end
 

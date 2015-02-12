@@ -15,8 +15,8 @@
       <tr>
         
         <td><%= text_area_tag(:url_name, "",size: "24x2") %></td>
-        <td><%= button_tag ("Chane URL"), :onclick=> "update_booking_status();" ,:class=> 'btn btn-success'%></td>
-        <td><%= text_area_tag(:url_name,"",size: "24x2") %></td>
+        <td><%= button_tag ("Chane URL"), :onclick=> "create_short_url();" ,:class=> 'btn btn-success'%></td>
+        <td></td>
         <td><%= link_to 'Show', genereate_url %></td>
         <td><%= link_to 'Edit', edit_genereate_url_path(genereate_url) %></td>
         <td><%= link_to 'Destroy', genereate_url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,19 +24,28 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
+
+
 <script type="text/javascript">
-  function update_booking_status(){
+ 
+
+  function create_short_url(){
    var url_name = ($('#url_name').val())
    $.ajax({
+      dataType: 'JSON',
       type: "POST",
       url: "/genereate_urls/genereate_short_url/",
-      data:{url_name: url_name}
-
+      data:{url_name: url_name},
+       success: function(data) {
+        $('#shorter_link').html("<a href=http://loclhost:4000/" + data.unique_key +" />");
+         
+      }
    })
   }
 
 
 </script>
+
+<div id="shorter_link" style="width:300px"></div>
 <%= link_to 'New Genereate url', new_genereate_url_path %>
