@@ -10,16 +10,13 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @genereate_urls.each do |genereate_url| %>
-      <tr>
-        
+  <tbody>    
+      <tr>        
         <td><%= text_area_tag(:url_name, "",size: "24x2") %></td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;<%= button_tag ("Chane URL"), :onclick=> "create_short_url();" ,:class=> 'btn btn-success create_url'%></td>
         <td><div><%= text_area_tag(:new_url_name, "",size: "24x2") %></div></td>
         </td>
-      </tr>
-    <% end %>
+      </tr>    
   </tbody>
 </table>
 <br>
