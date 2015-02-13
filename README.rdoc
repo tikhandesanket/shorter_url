@@ -4,24 +4,20 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
+* rvm gemset use 2.0@short_url --create
 
-* Ruby version
+* bundle install
 
-* System dependencies
+* Ruby version 2.0
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database creation rake db:create
+                    rake db:migrate
+Follow the steps
+* There are two text box and button to create the URl
+1)For paste url in text box
+2)Press button tio create new url
+3)Copy the new url from second text box
+4)Paste in browser and hit url
 
 
 Please feel free to use a different markup language if you do not plan to run
